@@ -1,7 +1,8 @@
 fastapi
+pydantic
 uvicorn
 passlib
 pymongo
-pydantic
 motor
 jose
+PyJWT
