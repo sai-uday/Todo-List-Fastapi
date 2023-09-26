@@ -18,7 +18,6 @@ from typing import Annotated
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
-from bson import ObjectId
 from fastapi.middleware.cors import CORSMiddleware
 
 
