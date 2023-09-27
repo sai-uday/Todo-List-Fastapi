@@ -176,12 +176,12 @@ async def all():
 @app.post("/signup")
 async def signup(data: login):
     data = dict(data)
-    if (users_collection.find_one({"username": data["username"]})==None):
+    if ((await users_collection.find_one({"username": data["username"]}))):
         return "already exist"
     hashed_password = password_context.hash(data["password"])
     new_user = {"username": data["username"],
                 "hashed_password": hashed_password, "data": []}
-    users_collection.insert_one(new_user)
+    await users_collection.insert_one(new_user)
     return "User registered successfully"
 
 
