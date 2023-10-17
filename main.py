@@ -19,6 +19,8 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+import os
+from dotenv import load_dotenv
 
 
 # FastAPI app
@@ -37,8 +39,10 @@ SECRET_KEY = "your-secret-key"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
+load_dotenv(dotenv_path="mndb .env")
+my_variable = os.getenv("MY_VARIABLE")
 # MongoDB connection
-uri = "mongodb+srv://saiuday901:saiuday@project1.rake031.mongodb.net"
+uri = my_variable
 client = AsyncIOMotorClient(uri)
 db = client["first"]
 users_collection = db["first"]
